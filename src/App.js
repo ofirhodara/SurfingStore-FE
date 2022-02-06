@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-
-
-
-
+import React, { useState } from 'react';
+import Header from './components/Layout/Header';
 
 function App() {
   return (
       <>
-   
+      <Header></Header>
       </>
   );
 }
