@@ -1,11 +1,12 @@
 import CartIcon from "../Cart/CartIcon";
+import Button from "../UI/Button/Button";
 import classes from './HeaderCartButton.module.css';
 
 
 const HeaderCartButton = props => {
 
 
-    return <button className={classes.button}>
+    return <Button className={classes.button} onClick={props.onShowCart}>
         <span className={classes.icon}>
             <CartIcon></CartIcon>
         </span>
@@ -18,7 +19,7 @@ const HeaderCartButton = props => {
               3
         </span>
 
-    </button>
+    </Button>
 
 }
 export default HeaderCartButton;

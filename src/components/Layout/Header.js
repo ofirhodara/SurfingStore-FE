@@ -8,7 +8,7 @@ const Header = (props) => {
     <>
       <header className={classes.header}>
         <h1>Surfing Store</h1>
-        <HeaderCartButton></HeaderCartButton>
+        <HeaderCartButton onShowCart={props.onShowCart}></HeaderCartButton>
       </header>
 
       <div className={classes['main-image']}>
