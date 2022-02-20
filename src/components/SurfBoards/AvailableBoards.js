@@ -1,5 +1,5 @@
-import classes from './AvailableBoards.module.css';
 import Card from '../UI/Card/Card';
+import classes from './AvailableBoards.module.css';
 import BoardItem from './BoardItem';
 
 const DUMMY_BOARDS = [
@@ -33,7 +33,7 @@ const DUMMY_BOARDS = [
 
 const AvailableBoards = props => {
   const boardsList = DUMMY_BOARDS.map((board) =>
-    <BoardItem key={board.id} name={board.name}
+    <BoardItem key={board.id} name={board.name} id={board.id}
       desc={board.description} price={board.price}></BoardItem>
   );
 
