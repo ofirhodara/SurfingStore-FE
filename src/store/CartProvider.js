@@ -8,18 +8,36 @@ const defaultState = { items: [], totalAmount: 0 };
 const reducer = (state, action) => {
     switch (action.type) {
         case 'ADD':
-            // brand new array, because js must know that new array was built
+            const existingIndex = state.items.findIndex(item => item.id === action.item.id);
+            let updatedItems = [...state.items];
+
+            if (existingIndex != -1) {
+                updatedItems[existingIndex].amount += action.item.amount;
+            }
+            else {
+                updatedItems.push(action.item)
+            }
+
             return {
-                items: state.items.concat(action.item),
+                items: updatedItems,
                 totalAmount: state.totalAmount + (action.item.price * action.item.amount)
             };
 
         case 'REMOVE':
-            const findItem = null;
-            // we will do it after!
+
+            const existingIndexRemove = state.items.findIndex(item => item.id === action.id);
+            let updatedItemsAfterRemove = [...state.items];
+            let findItem = updatedItemsAfterRemove[existingIndexRemove];
+            // remove 1 item :)
+            findItem.amount -= 1;
+
+            if(findItem.amount === 0)
+            {
+                updatedItemsAfterRemove.splice(existingIndexRemove);
+            }    
             return {
-                items: state.items.filter(findItem),
-                totalAmount: state.totalAmount - (findItem.price * findItem.amount)
+                items: updatedItemsAfterRemove,
+                totalAmount: state.totalAmount - findItem.price
             };
     }
 
