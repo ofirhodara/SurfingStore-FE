@@ -9,7 +9,7 @@ const HeaderCartButton = props => {
     // will render any time it is changed!
     const cartCtx = useContext(CartContext);
 
-    const amountUniqItem = cartCtx.items;
+    const amountUniqItem = cartCtx.items.reduce((curNumber, item) => { return curNumber + item.amount }, 0);
 
     return <Button className={classes.button} onClick={props.onShowCart}>
         <span className={classes.icon}>
@@ -21,7 +21,7 @@ const HeaderCartButton = props => {
         </span>
 
         <span className={classes.badge}>
-            3
+            {amountUniqItem}
         </span>
 
     </Button>
