@@ -10,4 +10,5 @@ const Input = forwardRef((props, ref) => {
     </div>
   );
 });
+
 export default Input;
